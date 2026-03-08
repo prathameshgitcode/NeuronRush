@@ -2,6 +2,10 @@
 
 A modern, interactive brain training and math games platform built with Next.js 14, React 18, and Tailwind CSS.
 
+## 🎮 [Play Now!](https://neuron-rush-6d66.vercel.app/)
+
+**Live Demo:** https://neuron-rush-6d66.vercel.app/ - Try the game right now!
+
 ## 🎮 Games Included
 
 - **Speed Math** ⚡ - Solve arithmetic equations as fast as you can before time runs out
