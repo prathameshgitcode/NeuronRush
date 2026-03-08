@@ -1,0 +1,171 @@
+/* Utility for dynamic background color */
+/* For dynamic grid columns in memory game */
+.memory-grid {
+  display: grid;
+  gap: 0.625rem; /* 2.5 */
+  width: 100%;
+}
+.arithmetic-question {
+  font-size: clamp(1.6rem,6vw,2.4rem);
+  letter-spacing: -1px;
+}
+/* Custom utility classes for game UIs */
+.text-accent-yellow {
+  color: #f59e0b;
+}
+.text-accent-green {
+  color: #00f5a0;
+}
+.font-bold-700 {
+  font-weight: 700;
+}
+.font-size-1rem {
+  font-size: 1rem;
+}
+.memory-card-matched {
+  background: rgba(0,245,160,0.1);
+  border: 2px solid #00f5a0;
+  opacity: 0.6;
+  transform: scale(1);
+}
+.memory-card-flipped {
+  background: #1c1c28;
+  border: 2px solid #f59e0b;
+  transform: scale(1);
+}
+.memory-card-default {
+  background: #12121a;
+  border: 2px solid rgba(255,255,255,0.08);
+  transform: scale(0.97);
+}
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #00f5a0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: #0a0a0f;
+  color: #f0f0f8;
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,245,160,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,160,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass {
+  background: rgba(18,18,26,0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+}
+
+.speed-question {
+  letter-spacing: -2px;
+}
+
+/* Utility classes for inline style removal */
+.gradient-text {
+  background: linear-gradient(135deg,#00f5a0,#00c9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.bg-dark {
+  background: #1c1c28;
+}
+.border-faint {
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.border-accent {
+  border: 2px solid #00f5a0;
+}
+.border-faint-2 {
+  border: 2px solid rgba(255,255,255,0.08);
+}
+.bg-accent {
+  background: #00f5a0;
+}
+.bg-accent-faint {
+  background: rgba(0,245,160,0.08);
+}
+.color-accent {
+  color: #00f5a0;
+}
+.color-gray {
+  color: #6b7280;
+}
+.border-dashed-gray {
+  border: 2px dashed #6b7280;
+}
+.rounded-20 {
+  border-radius: 20px;
+}
+
+.btn-primary {
+  background: #00f5a0;
+  color: #000;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  border-radius: 14px;
+  padding: 14px 24px;
+  transition: opacity 0.2s, transform 0.15s;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-primary:hover { opacity: 0.85; transform: scale(1.02); }
+
+.btn-secondary {
+  background: transparent;
+  color: #f0f0f8;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 14px 24px;
+  border: 2px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+.btn-secondary:hover { background: #1c1c28; }
+
+.answer-btn {
+  padding: 18px 12px;
+  border-radius: 16px;
+  border: 2px solid rgba(255,255,255,0.08);
+  background: #12121a;
+  color: #f0f0f8;
+  font-family: 'Space Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+}
+.answer-btn:hover:not(:disabled) {
+  background: #1c1c28;
+  border-color: rgba(255,255,255,0.2);
+  transform: scale(1.02);
+}
+.answer-btn.correct { background: rgba(0,245,160,0.15); border-color: #00f5a0; color: #00f5a0; }
+.answer-btn.wrong   { background: rgba(239,68,68,0.15);  border-color: #ef4444; color: #ef4444; }
+.answer-btn:disabled { cursor: default; }
